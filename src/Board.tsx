@@ -21,7 +21,7 @@ const Board = () => {
   const [squares, setSquares] = React.useState(Array(9).fill(null))
   const [isX, setIsX] = React.useState(true)
   const [winner, setWinner] = React.useState<null | String>(null)
-  let [status, setStatus] = React.useState<String>('')
+
   const handleClick = (i:number) => {
     if (squares[i] || (winner !== null)){
       return
@@ -31,6 +31,8 @@ const Board = () => {
     setIsX(!isX)    
     setWinner(calculateWinner(squares))
   }
+  
+
   
   const resetBoard = () => {
     setSquares(Array(9).fill(null))
@@ -54,6 +56,9 @@ const Board = () => {
       {renderSquare(7)}
       {renderSquare(8)}
       <button onClick={resetBoard}>Reset</button>
+      {winner !== null && 
+        <h2 className="status">Congrats, player {winner} has won!</h2>
+      }
     </div>
   )
 }

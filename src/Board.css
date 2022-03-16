@@ -3,7 +3,7 @@
     width: 600px;
     height: 600px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     margin-top: 100px;
     grid-auto-rows: 1fr;
 }
@@ -12,7 +12,7 @@ button:hover{
     cursor: pointer;
 }
 
-button:last-child:nth-child(3n - 2) {
+button:nth-child(3n +1):nth-last-child(-n+3) {
     margin-top: 20px;
     grid-column-end: 2;
     width: 80px;
@@ -24,6 +24,12 @@ button:last-child:nth-child(3n - 2) {
     font-size: 20px;
 }
 
+h2:nth-child(3n+2){
+    text-align: center;
+    vertical-align: middle;
+    grid-column: 2 / 4;
+    grid-rows: 4 / 5;
+}
 button{
     font-size: 100px
 }
